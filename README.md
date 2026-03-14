@@ -19,10 +19,12 @@ src/
     page.tsx             # Main page with all 17 slides (single-page app)
     globals.css          # Tailwind theme tokens, hover transitions, animations
   components/
-    Slide.tsx            # Slide container, SlideTag, SectionTitle, SectionSub
+    Slide.tsx            # Slide container (with id anchors), SlideTag, SectionTitle, SectionSub
     AnimatedSection.tsx  # FadeIn, StaggerGrid, StaggerItem, AnimatedCounter,
                          # AnimatedBar, TimelineDot
-    ScrollProgressBar.tsx # Fixed scroll progress indicator
+    ScrollProgressBar.tsx # Fixed scroll progress indicator (red gradient)
+    StickyNav.tsx        # Sticky header nav with section pills (desktop) and
+                         # hamburger dropdown (mobile), IntersectionObserver tracking
   lib/
     images.ts            # Base64-encoded image data (~890KB, all images self-contained)
 public/
@@ -49,6 +51,15 @@ public/
 16. **The Team** - Leadership bios (Joseph, Frank, Advisory Board, CQ Marketing)
 17. **Contact** - Contact info, badges, confidential notice
 
+## Navigation
+
+- **Sticky header nav** - Fixed at top, slides between transparent and blurred dark background on scroll
+- **Desktop** - Horizontal pill buttons for all 17 sections with animated active indicator (Framer Motion `layoutId`)
+- **Mobile** - Shows current section number + label, hamburger opens 2-column dropdown overlay
+- **IntersectionObserver** - Automatically highlights the section currently in view
+- **Smooth scroll** - Click any nav item to scroll to that section
+- **Logo** - Clicking the logo scrolls back to the cover
+
 ## Animations and Interactivity
 
 - **Scroll progress bar** - Red gradient bar fixed at top of viewport
@@ -61,6 +72,7 @@ public/
 - **Client logo hover** - Subtle lift with shadow
 - **Badge hover** - 501(c)(3) badge fills red on hover
 - **Cover line pulse** - Continuous subtle glow animation
+- **Mobile text sizes** - All body text bumped ~25% larger on mobile for readability
 
 All hover effects use CSS transitions for 60fps performance on mobile and desktop.
 
