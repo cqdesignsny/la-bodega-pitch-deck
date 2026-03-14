@@ -29,6 +29,98 @@ body {
   overflow-x: hidden;
 }
 
+/* Card hover transitions (applied via Tailwind, but base transition here for smoothness) */
+.card-hover-dark {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.card-hover-dark:hover {
+  border-color: rgba(193, 39, 45, 0.35);
+  box-shadow: 0 8px 32px rgba(193, 39, 45, 0.12), 0 0 0 1px rgba(193, 39, 45, 0.1);
+  background-color: #1e1e1e;
+}
+
+.card-hover-light {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-hover-light:hover {
+  border-color: rgba(193, 39, 45, 0.25);
+  box-shadow: 0 12px 40px rgba(193, 39, 45, 0.08), 0 0 0 1px rgba(193, 39, 45, 0.12);
+}
+
+/* Red outline card hover (for calendar, dance programs) */
+.card-hover-outline {
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+.card-hover-outline:hover {
+  box-shadow: 0 8px 28px rgba(193, 39, 45, 0.15), 0 0 0 1px rgba(193, 39, 45, 0.2);
+  background-color: #fff8f8;
+}
+
+/* Image hover zoom */
+.img-hover-zoom {
+  overflow: hidden;
+}
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Client logo hover */
+.client-logo-hover {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.client-logo-hover:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Stat card glow on hover */
+.stat-hover {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.stat-hover:hover {
+  box-shadow: 0 0 30px rgba(193, 39, 45, 0.2), inset 0 0 20px rgba(193, 39, 45, 0.03);
+  border-color: rgba(193, 39, 45, 0.6);
+}
+
+/* Borough card hover */
+.borough-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.borough-hover:hover {
+  border-color: rgba(193, 39, 45, 0.4);
+  box-shadow: 0 4px 20px rgba(193, 39, 45, 0.15);
+}
+
+/* Fund card hover */
+.fund-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.fund-hover:hover {
+  border-color: rgba(193, 39, 45, 0.4);
+  box-shadow: 0 12px 40px rgba(193, 39, 45, 0.2);
+}
+
+/* Cover badge hover */
+.badge-hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.badge-hover:hover {
+  background-color: #c1272d;
+  color: #ffffff;
+}
+
+/* Pulse animation for the cover line */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(193, 39, 45, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(193, 39, 45, 0.6); }
+}
+.pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
 /* Print styles */
 @media print {
   .slide { page-break-after: always; break-after: page; }

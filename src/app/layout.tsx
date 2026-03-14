@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   title: "The Bodega Creative Institute | Investment Pitch Deck",
   description:
     "NYC's first all-ages creative arts academy. Music. Dance. Production. Culture. Community. Built in the heart of the South Bronx.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "The Bodega Creative Institute | Investment Pitch Deck",
     description:

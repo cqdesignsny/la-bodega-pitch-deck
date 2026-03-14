@@ -1,7 +1,8 @@
 "use client";
 
 import { Slide, SlideTag, SectionTitle, SectionSub } from "@/components/Slide";
-import { FadeIn, StaggerGrid, StaggerItem } from "@/components/AnimatedSection";
+import { FadeIn, StaggerGrid, StaggerItem, AnimatedCounter, AnimatedBar, TimelineDot } from "@/components/AnimatedSection";
+import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 import {
   logoLight,
   mbeLogo,
@@ -59,7 +60,7 @@ function CardDark({
 }) {
   return (
     <div
-      className={`p-7 rounded-xl bg-dark3 border border-white/[0.04] max-sm:text-center ${className}`}
+      className={`p-7 rounded-xl bg-dark3 border border-white/[0.04] max-sm:text-center card-hover-dark ${className}`}
     >
       {children}
     </div>
@@ -75,7 +76,7 @@ function CardLight({
 }) {
   return (
     <div
-      className={`p-7 rounded-xl bg-white border border-black/[0.06] shadow-[0_2px_12px_rgba(0,0,0,0.04)] max-sm:text-center ${className}`}
+      className={`p-7 rounded-xl bg-white border border-black/[0.06] shadow-[0_2px_12px_rgba(0,0,0,0.04)] max-sm:text-center card-hover-light ${className}`}
     >
       {children}
     </div>
@@ -97,6 +98,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 export default function PitchDeck() {
   return (
     <main>
+      <ScrollProgressBar />
       {/* ━━━ SLIDE 1: COVER ━━━ */}
       <Slide variant="dark" number={1} center>
         {/* Background image */}
@@ -121,7 +123,7 @@ export default function PitchDeck() {
             </h1>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <div className="w-[60px] h-[3px] bg-red mx-auto mb-6" />
+            <div className="w-[60px] h-[3px] bg-red mx-auto mb-6 pulse-glow rounded-full" />
           </FadeIn>
           <FadeIn delay={0.4}>
             <p className="text-[clamp(15px,2vw,20px)] font-light text-gray-lighter max-w-[680px] mx-auto mb-8 leading-relaxed">
@@ -132,7 +134,7 @@ export default function PitchDeck() {
           </FadeIn>
           <FadeIn delay={0.5}>
             <div className="flex gap-4 justify-center flex-wrap items-center">
-              <div className="py-2 px-5 border border-red rounded font-mono text-[10px] tracking-[2px] text-red uppercase">
+              <div className="py-2 px-5 border border-red rounded font-mono text-[10px] tracking-[2px] text-red uppercase badge-hover">
                 501(c)(3) Nonprofit
               </div>
               <img src={mbeLogo} alt="MBE Certified" className="h-12" />
@@ -175,7 +177,7 @@ export default function PitchDeck() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-7">
             {[studentPhoto1, studentPhoto2, studentPhoto3, summerProgram].map(
               (src, i) => (
-                <div key={i} className="rounded-[10px] overflow-hidden h-40">
+                <div key={i} className="rounded-[10px] overflow-hidden h-40 img-hover-zoom">
                   <img
                     src={src}
                     alt="Students"
@@ -284,45 +286,61 @@ export default function PitchDeck() {
           {[
             {
               num: "425",
+              counter: 425,
+              suffix: "",
               label: "Arts Teachers Lost",
               detail:
                 "Between 2020 and 2023, NYC public schools lost 425 certified arts teachers. That\u2019s a 15% drop, and thousands of students left without any arts instruction at all.",
             },
             {
               num: "23%",
+              counter: 23,
+              suffix: "%",
               label: "Schools With Zero Arts Teachers",
               detail:
                 "Nearly 1 in 4 NYC public schools don\u2019t have a single certified arts teacher. That\u2019s 307 schools. The Bronx is one of the hardest-hit boroughs.",
             },
             {
               num: "33%",
+              counter: 33,
+              suffix: "%",
               label: "Students Meeting State Standards",
               detail:
                 "Only one-third of NYC 8th graders meet New York State\u2019s arts education requirements. That number hasn\u2019t moved since 2015.",
             },
             {
               num: "47%",
+              counter: 47,
+              suffix: "%",
               label: "Schools Say Funding Is Not Enough",
               detail:
                 "Nearly half of all NYC schools report that arts funding is insufficient. Federal stimulus money that temporarily helped has already expired.",
             },
             {
               num: "80%",
+              counter: 80,
+              suffix: "%",
               label: "Schools Need Outside Partners",
               detail:
                 "4 out of 5 NYC public schools rely on cultural organizations and nonprofits to provide arts programming. The system needs partners like us.",
             },
             {
               num: "0",
+              counter: 0,
+              suffix: "",
               label: "Comprehensive Academies in the South Bronx",
               detail:
                 "The birthplace of hip-hop doesn\u2019t have a single dedicated, all-ages creative arts academy. We\u2019re here to change that.",
             },
           ].map((stat) => (
             <StaggerItem key={stat.num + stat.label}>
-              <div className="p-7 border-l-4 border-red rounded-r-xl bg-red/8">
+              <div className="p-7 border-l-4 border-red rounded-r-xl bg-red/8 stat-hover">
                 <div className="font-display text-[clamp(38px,4vw,50px)] font-black text-red mb-1">
-                  {stat.num}
+                  {stat.counter ? (
+                    <AnimatedCounter value={stat.counter} suffix={stat.suffix || ""} />
+                  ) : (
+                    stat.num
+                  )}
                 </div>
                 <div className="text-base font-semibold text-white mb-2">
                   {stat.label}
@@ -466,7 +484,7 @@ export default function PitchDeck() {
             { src: clientMark, alt: "Client" },
           ].map((logo) => (
             <StaggerItem key={logo.alt + logo.src.slice(-20)}>
-              <div className="h-20 flex items-center justify-center p-3.5 rounded-[10px] bg-white">
+              <div className="h-20 flex items-center justify-center p-3.5 rounded-[10px] bg-white client-logo-hover">
                 <img
                   src={logo.src}
                   alt={logo.alt}
@@ -743,14 +761,14 @@ export default function PitchDeck() {
             },
           ].map((program) => (
             <StaggerItem key={program.title}>
-              <CardLight>
+              <div className="p-7 rounded-xl bg-white border-2 border-red/20 shadow-[0_2px_12px_rgba(0,0,0,0.04)] max-sm:text-center card-hover-outline">
                 <h4 className="font-display text-lg font-bold mb-2 text-dark">
                   {program.title}
                 </h4>
                 <p className="text-sm leading-relaxed text-gray">
                   {program.desc}
                 </p>
-              </CardLight>
+              </div>
             </StaggerItem>
           ))}
         </StaggerGrid>
@@ -815,7 +833,7 @@ export default function PitchDeck() {
             </div>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="rounded-xl overflow-hidden min-h-[380px]">
+            <div className="rounded-xl overflow-hidden min-h-[380px] img-hover-zoom">
               <img
                 src={summerProgram}
                 alt="Summer program"
@@ -882,7 +900,7 @@ export default function PitchDeck() {
           ].map((era, i) => (
             <FadeIn key={era.period} delay={i * 0.08}>
               <div className="relative mb-8">
-                <div className="absolute -left-7 top-1 w-[18px] h-[18px] rounded-full bg-red border-[3px] border-offwhite" />
+                <TimelineDot />
                 <div className="font-mono text-[11px] tracking-[2px] text-red mb-1">
                   {era.period}
                 </div>
@@ -1042,7 +1060,7 @@ export default function PitchDeck() {
             },
           ].map((event) => (
             <StaggerItem key={event.month}>
-              <div className="p-5 rounded-[10px] border-2 border-red bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+              <div className="p-5 rounded-[10px] border-2 border-red bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04)] card-hover-outline">
                 <div className="font-mono text-[11px] tracking-[2px] text-red uppercase mb-2 font-medium">
                   {event.month}
                 </div>
@@ -1112,7 +1130,7 @@ export default function PitchDeck() {
           ].map((b) => (
             <StaggerItem key={b.name}>
               <div
-                className={`p-6 rounded-xl text-center bg-dark3 ${
+                className={`p-6 rounded-xl text-center bg-dark3 borough-hover ${
                   b.hq
                     ? "border-2 border-red bg-red/8"
                     : "border border-white/[0.04]"
@@ -1224,12 +1242,7 @@ export default function PitchDeck() {
                       {stream.pct}%
                     </span>
                   </div>
-                  <div className="h-2 rounded bg-black/[0.06] overflow-hidden">
-                    <div
-                      className="h-full rounded bg-gradient-to-r from-red-dark to-red"
-                      style={{ width: `${stream.pct}%` }}
-                    />
-                  </div>
+                  <AnimatedBar width={stream.pct} />
                 </div>
               ))}
             </div>
@@ -1323,7 +1336,7 @@ export default function PitchDeck() {
             },
           ].map((fund) => (
             <StaggerItem key={fund.title}>
-              <CardDark className="text-center border border-red/15">
+              <div className="p-7 rounded-xl bg-dark3 border border-red/15 max-sm:text-center text-center fund-hover">
                 <div className="font-display text-4xl font-black text-red mb-1">
                   {fund.pct}
                 </div>
@@ -1331,7 +1344,7 @@ export default function PitchDeck() {
                   {fund.title}
                 </h4>
                 <p className="text-xs text-gray-light">{fund.desc}</p>
-              </CardDark>
+              </div>
             </StaggerItem>
           ))}
         </StaggerGrid>
@@ -1433,7 +1446,7 @@ export default function PitchDeck() {
         </FadeIn>
         <FadeIn delay={0.35}>
           <div className="flex gap-4 justify-center flex-wrap items-center mt-6">
-            <div className="py-2 px-5 border border-red rounded font-mono text-[10px] tracking-[2px] text-red uppercase">
+            <div className="py-2 px-5 border border-red rounded font-mono text-[10px] tracking-[2px] text-red uppercase badge-hover">
               501(c)(3) Nonprofit
             </div>
             <img src={mbeLogo} alt="MBE Certified" className="h-12" />
