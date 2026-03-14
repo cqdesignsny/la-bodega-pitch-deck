@@ -3,6 +3,7 @@
 import { Slide, SlideTag, SectionTitle, SectionSub } from "@/components/Slide";
 import { FadeIn, StaggerGrid, StaggerItem, AnimatedCounter, AnimatedBar, TimelineDot } from "@/components/AnimatedSection";
 import { ScrollProgressBar } from "@/components/ScrollProgressBar";
+import { StickyNav } from "@/components/StickyNav";
 import {
   logoLight,
   mbeLogo,
@@ -86,7 +87,7 @@ function CardLight({
 /* ─── Tag pill ─── */
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="px-2.5 py-1 rounded-full text-[11px] font-mono tracking-[0.5px] bg-red/10 text-red">
+    <span className="px-2.5 py-1 rounded-full text-[13px] sm:text-[11px] font-mono tracking-[0.5px] bg-red/10 text-red">
       {children}
     </span>
   );
@@ -99,8 +100,9 @@ export default function PitchDeck() {
   return (
     <main>
       <ScrollProgressBar />
+      <StickyNav />
       {/* ━━━ SLIDE 1: COVER ━━━ */}
-      <Slide variant="dark" number={1} center>
+      <Slide variant="dark" number={1} center id="cover">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-35 pointer-events-none"
@@ -126,7 +128,7 @@ export default function PitchDeck() {
             <div className="w-[60px] h-[3px] bg-red mx-auto mb-6 pulse-glow rounded-full" />
           </FadeIn>
           <FadeIn delay={0.4}>
-            <p className="text-[clamp(15px,2vw,20px)] font-light text-gray-lighter max-w-[680px] mx-auto mb-8 leading-relaxed">
+            <p className="text-[clamp(17px,2.2vw,22px)] font-light text-gray-lighter max-w-[680px] mx-auto mb-8 leading-relaxed">
               NYC&apos;s first all-ages creative arts academy. Music. Dance.
               Production. Culture. Community. Built in the heart of the South
               Bronx, designed for every neighborhood in the city.
@@ -149,7 +151,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 2: VISION ━━━ */}
-      <Slide variant="light" number={2}>
+      <Slide variant="light" number={2} id="vision">
         <FadeIn>
           <SlideTag>The Vision</SlideTag>
         </FadeIn>
@@ -161,7 +163,7 @@ export default function PitchDeck() {
           </h2>
         </FadeIn>
         <FadeIn delay={0.2}>
-          <p className="text-[clamp(16px,1.8vw,20px)] font-normal mb-5 max-w-[900px] leading-relaxed text-gray">
+          <p className="text-[clamp(18px,2vw,22px)] font-normal mb-5 max-w-[900px] leading-relaxed text-gray">
             That&apos;s the dream behind The Bodega Creative Institute. A
             year-round creative arts academy, open to all ages, rooted in the
             community that gave birth to hip-hop. We&apos;re building the YMCA
@@ -198,10 +200,10 @@ export default function PitchDeck() {
                 <circle cx="6" cy="18" r="3" />
                 <circle cx="18" cy="16" r="3" />
               </Icon>
-              <h4 className="font-display text-lg font-bold mb-2 text-dark">
+              <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-dark">
                 Create
               </h4>
-              <p className="text-sm leading-relaxed text-gray">
+              <p className="text-[15px] sm:text-base leading-relaxed text-gray">
                 Music production, songwriting, recording, and live performance
                 across every genre from classical to hip-hop to EDM.
               </p>
@@ -217,10 +219,10 @@ export default function PitchDeck() {
                 <path d="M12 10l-4 4h8l-4-4z" />
                 <path d="M7 20h10" />
               </Icon>
-              <h4 className="font-display text-lg font-bold mb-2 text-dark">
+              <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-dark">
                 Move
               </h4>
-              <p className="text-sm leading-relaxed text-gray">
+              <p className="text-[15px] sm:text-base leading-relaxed text-gray">
                 Dance programs spanning hip-hop, breaking, Afro-Latin,
                 contemporary, and ballet. Movement as a language for all ages.
               </p>
@@ -237,10 +239,10 @@ export default function PitchDeck() {
                 <path d="M15 19h4" />
                 <path d="M5 19h4" />
               </Icon>
-              <h4 className="font-display text-lg font-bold mb-2 text-dark">
+              <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-dark">
                 Innovate
               </h4>
-              <p className="text-sm leading-relaxed text-gray">
+              <p className="text-[15px] sm:text-base leading-relaxed text-gray">
                 AI-powered creative tools, digital production, and technology
                 that teaches students to build the future of art.
               </p>
@@ -251,10 +253,10 @@ export default function PitchDeck() {
               <Icon>
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
               </Icon>
-              <h4 className="font-display text-lg font-bold mb-2 text-dark">
+              <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-dark">
                 Serve
               </h4>
-              <p className="text-sm leading-relaxed text-gray">
+              <p className="text-[15px] sm:text-base leading-relaxed text-gray">
                 Community events, charity drives, mentorship, and support for
                 families. Because this is about people, not just programs.
               </p>
@@ -264,7 +266,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 3: PROBLEM ━━━ */}
-      <Slide variant="dark" number={3}>
+      <Slide variant="dark" number={3} id="problem">
         <FadeIn>
           <SlideTag>The Problem</SlideTag>
         </FadeIn>
@@ -342,10 +344,10 @@ export default function PitchDeck() {
                     stat.num
                   )}
                 </div>
-                <div className="text-base font-semibold text-white mb-2">
+                <div className="text-[17px] sm:text-base font-semibold text-white mb-2">
                   {stat.label}
                 </div>
-                <p className="text-sm leading-relaxed text-gray-light">
+                <p className="text-[15px] sm:text-base leading-relaxed text-gray-light">
                   {stat.detail}
                 </p>
               </div>
@@ -361,7 +363,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 4: FOUNDATION ━━━ */}
-      <Slide variant="light" number={4}>
+      <Slide variant="light" number={4} id="foundation">
         <FadeIn>
           <SlideTag>The Foundation</SlideTag>
         </FadeIn>
@@ -414,7 +416,7 @@ export default function PitchDeck() {
                   <span className="font-mono text-[10px] tracking-[2px] uppercase text-red font-medium min-w-[100px] shrink-0">
                     {label}
                   </span>
-                  <span className="text-base text-gray-dark">{value}</span>
+                  <span className="text-[17px] sm:text-base text-gray-dark">{value}</span>
                 </div>
               ))}
             </div>
@@ -437,13 +439,13 @@ export default function PitchDeck() {
                 ].map((cap) => (
                   <div
                     key={cap}
-                    className="p-3.5 bg-white border border-black/[0.06] rounded-lg text-sm text-gray-dark flex items-center gap-2.5"
+                    className="p-3.5 bg-white border border-black/[0.06] rounded-lg text-[15px] sm:text-[15px] sm:text-sm text-gray-dark flex items-center gap-2.5"
                   >
                     <span className="text-red font-bold">&diams;</span> {cap}
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-sm text-gray">
+              <p className="mt-4 text-[15px] sm:text-sm text-gray">
                 Featured in Open House New York and Great Performances.
                 Recognized as one of the Bronx&apos;s most unique creative
                 venues.
@@ -454,7 +456,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 5: CLIENTS ━━━ */}
-      <Slide variant="dark" number={5}>
+      <Slide variant="dark" number={5} id="clients">
         <FadeIn>
           <SlideTag>Trusted By</SlideTag>
         </FadeIn>
@@ -497,7 +499,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 6: SOLUTION ━━━ */}
-      <Slide variant="light" number={6} center>
+      <Slide variant="light" number={6} center id="solution">
         <FadeIn>
           <SlideTag>The Solution</SlideTag>
         </FadeIn>
@@ -553,10 +555,10 @@ export default function PitchDeck() {
                 <div className="font-mono text-[11px] tracking-[2px] text-red mb-2">
                   {track.age}
                 </div>
-                <h4 className="font-display text-lg font-bold mb-2 text-dark">
+                <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-dark">
                   {track.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-gray">
+                <p className="text-[15px] sm:text-base leading-relaxed text-gray">
                   {track.desc}
                 </p>
               </CardLight>
@@ -566,7 +568,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 7: MUSIC PROGRAMS ━━━ */}
-      <Slide variant="dark" number={7}>
+      <Slide variant="dark" number={7} id="music">
         <FadeIn>
           <SlideTag>Core Programs</SlideTag>
         </FadeIn>
@@ -693,10 +695,10 @@ export default function PitchDeck() {
             <StaggerItem key={program.title}>
               <CardDark>
                 <Icon dark>{program.icon}</Icon>
-                <h4 className="font-display text-lg font-bold mb-2 text-white">
+                <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-white">
                   {program.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-gray-lighter">
+                <p className="text-[15px] sm:text-base leading-relaxed text-gray-lighter">
                   {program.desc}
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-3 max-sm:justify-center">
@@ -711,7 +713,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 8: DANCE / DIGITAL / AI ━━━ */}
-      <Slide variant="light" number={8}>
+      <Slide variant="light" number={8} id="dance">
         <FadeIn>
           <SlideTag>Expanded Programs</SlideTag>
         </FadeIn>
@@ -762,10 +764,10 @@ export default function PitchDeck() {
           ].map((program) => (
             <StaggerItem key={program.title}>
               <div className="p-7 rounded-xl bg-white border-2 border-red/20 shadow-[0_2px_12px_rgba(0,0,0,0.04)] max-sm:text-center card-hover-outline">
-                <h4 className="font-display text-lg font-bold mb-2 text-dark">
+                <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-dark">
                   {program.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-gray">
+                <p className="text-[15px] sm:text-base leading-relaxed text-gray">
                   {program.desc}
                 </p>
               </div>
@@ -775,7 +777,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 9: SUMMER INTENSIVE ━━━ */}
-      <Slide variant="dark" number={9}>
+      <Slide variant="dark" number={9} id="summer">
         <FadeIn>
           <SlideTag>Signature Program</SlideTag>
         </FadeIn>
@@ -814,17 +816,17 @@ export default function PitchDeck() {
                   },
                 ].map((item) => (
                   <CardDark key={item.title}>
-                    <h4 className="font-display text-lg font-bold mb-2 text-white">
+                    <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-white">
                       {item.title}
                     </h4>
-                    <p className="text-sm leading-relaxed text-gray-lighter">
+                    <p className="text-[15px] sm:text-base leading-relaxed text-gray-lighter">
                       {item.desc}
                     </p>
                   </CardDark>
                 ))}
               </div>
               <div className="mt-5 p-5 bg-red/10 rounded-[10px] border-l-4 border-red">
-                <p className="text-sm text-white font-medium">
+                <p className="text-[15px] sm:text-sm text-white font-medium">
                   The program ends with a live concert where students perform and
                   celebrate everything they&apos;ve created together. It&apos;s
                   not just education. It&apos;s transformation.
@@ -845,7 +847,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 10: TIMELINE ━━━ */}
-      <Slide variant="light" number={10}>
+      <Slide variant="light" number={10} id="timeline">
         <FadeIn>
           <SlideTag>Cultural Education</SlideTag>
         </FadeIn>
@@ -907,7 +909,7 @@ export default function PitchDeck() {
                 <h4 className="font-display text-[clamp(17px,2vw,22px)] font-bold text-dark mb-1.5">
                   {era.title}
                 </h4>
-                <p className="text-sm text-gray">{era.desc}</p>
+                <p className="text-[15px] sm:text-[15px] sm:text-sm text-gray">{era.desc}</p>
               </div>
             </FadeIn>
           ))}
@@ -915,7 +917,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 11: COMMUNITY IMPACT ━━━ */}
-      <Slide variant="dark" number={11}>
+      <Slide variant="dark" number={11} id="community">
         <FadeIn>
           <SlideTag>Community Impact</SlideTag>
         </FadeIn>
@@ -969,10 +971,10 @@ export default function PitchDeck() {
                 <div className="font-mono text-[10px] tracking-[2px] text-red mb-2">
                   {event.type}
                 </div>
-                <h4 className="font-display text-lg font-bold mb-2 text-white">
+                <h4 className="font-display text-xl sm:text-lg font-bold mb-2 text-white">
                   {event.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-gray-lighter">
+                <p className="text-[15px] sm:text-base leading-relaxed text-gray-lighter">
                   {event.desc}
                 </p>
               </CardDark>
@@ -982,7 +984,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 12: EVENTS CALENDAR ━━━ */}
-      <Slide variant="light" number={12}>
+      <Slide variant="light" number={12} id="events">
         <FadeIn>
           <SlideTag>Future Programming</SlideTag>
         </FadeIn>
@@ -1064,10 +1066,10 @@ export default function PitchDeck() {
                 <div className="font-mono text-[11px] tracking-[2px] text-red uppercase mb-2 font-medium">
                   {event.month}
                 </div>
-                <h5 className="text-sm font-semibold mb-1 text-dark">
+                <h5 className="text-[15px] sm:text-sm font-semibold mb-1 text-dark">
                   {event.title}
                 </h5>
-                <p className="text-xs text-gray">{event.desc}</p>
+                <p className="text-[13px] sm:text-xs text-gray">{event.desc}</p>
               </div>
             </StaggerItem>
           ))}
@@ -1075,7 +1077,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 13: EXPANSION ━━━ */}
-      <Slide variant="dark" number={13} center>
+      <Slide variant="dark" number={13} center id="boroughs">
         <FadeIn>
           <SlideTag>The Scale</SlideTag>
         </FadeIn>
@@ -1195,7 +1197,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 14: FINANCIAL ━━━ */}
-      <Slide variant="light" number={14}>
+      <Slide variant="light" number={14} id="revenue">
         <FadeIn>
           <SlideTag>Financial Model</SlideTag>
         </FadeIn>
@@ -1236,7 +1238,7 @@ export default function PitchDeck() {
                 { label: "Venue Rentals and Private Events", pct: 8 },
               ].map((stream) => (
                 <div key={stream.label} className="mb-4">
-                  <div className="flex justify-between text-sm mb-1">
+                  <div className="flex justify-between text-[15px] sm:text-sm mb-1">
                     <span className="text-gray-dark">{stream.label}</span>
                     <span className="font-mono text-red font-bold">
                       {stream.pct}%
@@ -1262,7 +1264,7 @@ export default function PitchDeck() {
               ].map(([label, pct]) => (
                 <div
                   key={label}
-                  className="flex justify-between py-3.5 border-b border-black/[0.06] text-sm"
+                  className="flex justify-between py-3.5 border-b border-black/[0.06] text-[15px] sm:text-sm"
                 >
                   <span className="text-gray-dark">{label}</span>
                   <span className="font-mono text-red font-bold">{pct}</span>
@@ -1272,7 +1274,7 @@ export default function PitchDeck() {
                 <h4 className="text-sm text-red font-semibold mb-2.5">
                   Grant Targets
                 </h4>
-                <p className="text-[13px] text-gray leading-relaxed">
+                <p className="text-[15px] sm:text-[13px] text-gray leading-relaxed">
                   NYC Dept. of Cultural Affairs (DCLA) &bull; NYC Dept. of Youth
                   and Community Development &bull; NYS Council on the Arts
                   (NYSCA) &bull; National Endowment for the Arts (NEA) &bull;
@@ -1286,7 +1288,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 15: THE ASK ━━━ */}
-      <Slide variant="dark" number={15} center>
+      <Slide variant="dark" number={15} center id="investment">
         <FadeIn>
           <SlideTag>The Investment</SlideTag>
         </FadeIn>
@@ -1301,7 +1303,7 @@ export default function PitchDeck() {
           </div>
         </FadeIn>
         <FadeIn delay={0.2}>
-          <p className="text-[17px] max-w-[700px] text-center text-gray-lighter mb-10">
+          <p className="text-[19px] sm:text-[17px] max-w-[700px] text-center text-gray-lighter mb-10">
             This investment transforms La Bodega NY from a proven community
             space into New York City&apos;s first comprehensive, year-round
             creative arts academy. 500+ students served in Year 1.
@@ -1343,7 +1345,7 @@ export default function PitchDeck() {
                 <h4 className="text-sm font-bold text-white mb-1">
                   {fund.title}
                 </h4>
-                <p className="text-xs text-gray-light">{fund.desc}</p>
+                <p className="text-[13px] sm:text-[13px] sm:text-xs text-gray-light">{fund.desc}</p>
               </div>
             </StaggerItem>
           ))}
@@ -1351,7 +1353,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 16: TEAM ━━━ */}
-      <Slide variant="light" number={16}>
+      <Slide variant="light" number={16} id="team">
         <FadeIn>
           <SlideTag>Leadership</SlideTag>
         </FadeIn>
@@ -1389,7 +1391,7 @@ export default function PitchDeck() {
                 <div className="font-mono text-[10px] tracking-[2px] text-red uppercase mt-1 mb-2.5 font-medium">
                   {member.role}
                 </div>
-                <p className="text-sm leading-relaxed text-gray">
+                <p className="text-[15px] sm:text-base leading-relaxed text-gray">
                   {member.bio}
                 </p>
               </CardLight>
@@ -1399,7 +1401,7 @@ export default function PitchDeck() {
       </Slide>
 
       {/* ━━━ SLIDE 17: CONTACT ━━━ */}
-      <Slide variant="dark" number={17} center>
+      <Slide variant="dark" number={17} center id="contact">
         <FadeIn>
           <SlideTag>Let&apos;s Build This Together</SlideTag>
         </FadeIn>
@@ -1415,7 +1417,7 @@ export default function PitchDeck() {
           <div className="w-[50px] h-[3px] bg-red mx-auto my-4" />
         </FadeIn>
         <FadeIn delay={0.2}>
-          <p className="text-[17px] max-w-[600px] text-center text-gray-lighter mb-5">
+          <p className="text-[19px] sm:text-[17px] max-w-[600px] text-center text-gray-lighter mb-5">
             Every generation needs a place to discover their creative voice. The
             Bodega Creative Institute will be that place. For this generation,
             and every one that follows.
@@ -1433,14 +1435,14 @@ export default function PitchDeck() {
             <div className="text-base">
               <strong className="text-red font-semibold">La Bodega NY</strong>
             </div>
-            <div className="text-base text-gray-lighter">
+            <div className="text-[17px] sm:text-base text-gray-lighter">
               696 E 135th Street, Bronx, NY 10454
             </div>
-            <div className="text-base text-gray-lighter">(845) 745-5350</div>
-            <div className="text-base text-gray-lighter">
+            <div className="text-[17px] sm:text-base text-gray-lighter">(845) 745-5350</div>
+            <div className="text-[17px] sm:text-base text-gray-lighter">
               Joseph@labodegany.com
             </div>
-            <div className="text-base text-gray-lighter">labodegany.com</div>
+            <div className="text-[17px] sm:text-base text-gray-lighter">labodegany.com</div>
             <div className="text-base text-red mt-1.5">@labodegany</div>
           </div>
         </FadeIn>

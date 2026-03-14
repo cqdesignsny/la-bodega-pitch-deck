@@ -121,6 +121,15 @@ body {
   animation: pulse-glow 2.5s ease-in-out infinite;
 }
 
+/* Hide scrollbar on nav */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Print styles */
 @media print {
   .slide { page-break-after: always; break-after: page; }
