@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Bodega Creative Institute - Investment Pitch Deck
+
+A world-class, 17-slide investment pitch deck for **The Bodega Creative Institute**, NYC's first all-ages creative arts academy built in the South Bronx.
+
+## Tech Stack
+
+- **Next.js 16** (App Router, TypeScript)
+- **Tailwind CSS v4** (utility-first styling)
+- **Framer Motion** (scroll-triggered animations)
+- **Self-contained images** (all assets embedded as base64 data URIs)
+
+## Project Structure
+
+```
+src/
+  app/
+    layout.tsx      # Root layout with Google Fonts (Playfair Display, Outfit, DM Mono)
+    page.tsx         # Main page with all 17 slides
+    globals.css      # Tailwind config and global styles
+  components/
+    Slide.tsx        # Reusable slide container, tag, title, and subtitle components
+    AnimatedSection.tsx  # Framer Motion scroll animation wrappers
+  lib/
+    images.ts        # Base64-encoded image data (all images self-contained)
+```
+
+## Slides
+
+1. **Cover** - Logo, title, 501(c)(3) badge, MBE seal
+2. **The Vision** - Mission statement, student photos, 4 pillars
+3. **The Problem** - NYC arts education crisis (6 stat cards)
+4. **The Foundation** - La Bodega NY facts and capabilities
+5. **Some of Our Clients** - 10 client logos in white boxes
+6. **The Solution** - Age track cards (5-12, 13-17, 18-24, 25+)
+7. **Music Programs** - 8 program cards with icons and tags
+8. **Dance, Digital, and AI** - 8 expanded program cards
+9. **Summer Intensive** - Signature program details + photo
+10. **Story of Music** - Cultural timeline (pre-1900s to future)
+11. **Already Giving Back** - 6 community impact cards
+12. **Year-Round Events** - 12 month calendar cards
+13. **Five Boroughs** - Borough grid + 3-phase roadmap
+14. **Hybrid Revenue Model** - Revenue streams + access model
+15. **The Investment** - $1.2M ask + use-of-funds breakdown
+16. **The Team** - Leadership bios
+17. **Contact** - Contact info, badges, confidential notice
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deploy on Vercel:
 
-## Learn More
+```bash
+npx vercel
+```
 
-To learn more about Next.js, take a look at the following resources:
+Or connect the GitHub repo to Vercel for automatic deployments on push.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Brand Colors
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Color | Hex |
+|-------|-----|
+| Primary Red | `#c1272d` |
+| Black | `#0a0a0a` |
+| Off-white | `#f7f5f2` |
+| White | `#ffffff` |
 
-## Deploy on Vercel
+## Design Decisions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Private funding is listed first** in revenue streams at 35% (top investor priority)
+- **Calendar cards use full red border** (not one-sided)
+- **"South Bronx"** used consistently (not "Mott Haven")
+- **All timeline dots and labels are red** (no yellow)
+- **No emojis** anywhere in the deck
+- **No em dashes** - natural phrasing with "and"
+- **Client logos shown in full color** on white backgrounds, no hover effects
+- **All text 25%+ larger** than typical for phone readability
+- **Fully responsive** - stacks properly on mobile, tablet, laptop, ultrawide
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Client
+
+- **La Bodega NY** - 696 E 135th St, Bronx, NY 10454
+- **Built by** CQ Marketing (Digital Marketing and Technology Partner)
